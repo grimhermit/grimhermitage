@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 # Http responce redirect - используется для перенаправления пользователя к странице topics
 from django.http import HttpResponseRedirect, Http404
 # метод reverse определяет URL по заданной схеме URL
@@ -27,7 +27,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """Выводит одну тему и все ее записи"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
     # Проверка того, что тема принадлежит текущему пользователю
     if topic.owner != request.user:
         raise Http404
