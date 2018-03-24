@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*+n=(mi@f3_)2r&k&@u@b_6q*x0wqwg_1&hy#*s$lp)6tjoy1k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -143,7 +143,7 @@ if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # Разрешены все заголовки хостов.
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['grimhermitage.herokuapp.com']
 
     # конфигурация статических ресурсов
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -154,7 +154,7 @@ if os.getcwd() == '/app':
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
-    
+
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
